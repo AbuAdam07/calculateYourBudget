@@ -1,33 +1,47 @@
 <template>
-  <h2>Income: {{ TotalIncomeSum }}</h2>
-  <div class="income">
-    <div v-for="card in incomeCards" :key="card.id">
-      <IncomeCard
-        :card="card"
-        @delete="deleteIncomeMsg"
-        @add="addNewIncomeMsg"
-      />
-      <button @click="deleteIncomeCard(card)">X</button>
+  <div class="main">
+    <div class="container">
+      <h2>Income: {{ TotalIncomeSum }}</h2>
+      <div class="income">
+        <div v-for="card in incomeCards" :key="card.id" class="bat">
+          <IncomeCard
+            :card="card"
+            @delete="deleteIncomeMsg"
+            @add="addNewIncomeMsg"
+          />
+          <button
+            class="btn btn-secondary btn_x"
+            @click="deleteIncomeCard(card)"
+          >
+            X
+          </button>
+        </div>
+        <button class="btn btn-secondary btn_ad" @click="addIncomeCard">
+          + Add card <br /><br />
+        </button>
+      </div>
+      <h2>Outcome : {{ TotalOutcomeSum }}</h2>
+      <div class="outcome">
+        <div v-for="card in outcomeCards" :key="card.id" class="bat">
+          <OutcomeCard
+            :card="card"
+            @delete="deleteOutcomeExpense"
+            @add="addNewOutcomeExpense"
+          />
+          <button
+            class="btn btn-secondary btn_x"
+            @click="deleteOutcomeCard(card)"
+          >
+            X
+          </button>
+        </div>
+        <button class="btn btn-secondary btn_ad" @click="addOutcomeCard">
+          + Add card <br /><br />
+        </button>
+      </div>
+      <h1>TOTAL RESULT : {{ TotalIncomeSum - TotalOutcomeSum }}</h1>
     </div>
-    <button @click="addIncomeCard">
-      + Add card <br /><br />
-    </button>
   </div>
-  <h2>Outcome : {{ TotalOutcomeSum }}</h2>
-  <div class="outcome">
-    <div v-for="card in outcomeCards" :key="card.id">
-      <OutcomeCard
-        :card="card"
-        @delete="deleteOutcomeExpense"
-        @add="addNewOutcomeExpense"
-      />
-      <button @click="deleteOutcomeCard(card)">X</button>
-    </div>
-    <button @click="addOutcomeCard">
-      + Add card <br /><br />
-    </button>
-  </div>
-  <h1>TOTAL RESULT : {{ TotalIncomeSum - TotalOutcomeSum }}</h1>
 </template>
 
 <script>
@@ -109,10 +123,76 @@ export default {
 </script>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Anta&family=Arimo:ital@0;1&family=Barlow:wght@600&family=Inter:slnt,wght@-10..0,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:wght@400;600;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 2%;
+  font-size: 100%;
+  list-style: none;
+}
+body {
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+h1 {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 2em;
+  color: yellow;
+}
+h2 {
+  font-size: 1.5em;
+  color: rgb(251, 255, 2);
+}
+.btn {
+  color: azure;
+  text-align: center;
+}
+
+@keyframes slide {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+.main {
+  background-image: url(../public/office.jpg);
+  background-repeat: cover;
+  animation: slide 90s linear infinite;
+  width: 100%;
+  height: 100%;
+}
 .income {
   display: flex;
+  font-family: "Josefin Sans", sans-serif;
+  flex-wrap: wrap;
 }
 .outcome {
   display: flex;
+  font-family: "Josefin Sans", sans-serif;
+  flex-wrap: wrap;
+}
+.bat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.btn_x {
+  background-color: red;
+}
+.btn_ad{
+  background-color: rgb(91, 134, 26);
+  align-self: center;
+  text-align: center;
+  padding: 5px;
+  margin: 0 auto;
+  border-color: yellow;
 }
 </style>
