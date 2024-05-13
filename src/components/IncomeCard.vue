@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <input type="text" placeholder="+ add name">
+    <input type="text" placeholder="+ Add name">
     <div v-for="msg in card.msgs" :key="msg.id" class="prosto">
       <input
         type="number"
@@ -47,7 +47,7 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: #81bbee;
+  background-color: #1a64a4;
 }
 input{
   border-radius: 10px;

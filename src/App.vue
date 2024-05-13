@@ -139,11 +139,11 @@ body {
 h1 {
   font-family: "Josefin Sans", sans-serif;
   font-size: 2em;
-  color: yellow;
+  color: white;
 }
 h2 {
   font-size: 1.5em;
-  color: rgb(251, 255, 2);
+  color: white;
 }
 .btn {
   color: azure;
@@ -188,7 +188,7 @@ h2 {
   background-color: red;
 }
 .btn_ad{
-  background-color: rgb(91, 134, 26);
+  background-color: rgb(55, 164, 0);
   align-self: center;
   text-align: center;
   padding: 5px;
